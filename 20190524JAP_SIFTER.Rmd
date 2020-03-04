@@ -1,0 +1,237 @@
+---
+title: "20190524JAP_SIFTER"
+author: "JA Picache"
+date: "5/24/2019"
+output: html_document
+---
+
+#data import
+```{r}
+# install.packages("randomForest", "dyplyr", "plyr", "tidyverse", "data.table")
+library(randomForest)
+library(dplyr)
+library(plyr)
+library(tidyverse)
+library(data.table)
+
+all <- read.csv("~/Box Sync/R_Scripts&Data/20171218JAP_iceberg/R-output/allMASTER.csv", header = TRUE, stringsAsFactors = FALSE)
+
+```
+
+#build
+```{r}
+#data prep
+sb.full <- all[, c("Compound", "InChiKey", "Kingdom", "Super.Class", "Class","Subclass", "mz", "CCS")]
+sb <- sb.full %>% group_by(Subclass) %>% filter(n() >= 10) #filters for classes with n >= 10
+sb$Subclass <- ifelse(sb$Subclass == "", NA, sb$Subclass)
+sb <- na.omit(sb)
+sb$km <- sb$mz/1.0011178
+sb$nkm <- floor(sb$km)
+sb$kmd <- sb$nkm - sb$km
+
+# train and test set
+test.row <- sample(nrow(sb), 0.15*(nrow(sb)))
+test <- sb[test.row,]
+train <- sb[-test.row,]
+train <- sb[, c("Compound", "InChiKey", "Kingdom", "Super.Class", "Class","Subclass", "mz", "CCS", "kmd")]
+train[, c("Kingdom", "Super.Class", "Class", "Subclass")] <- lapply(train[, c("Kingdom", "Super.Class", "Class", "Subclass")], as.factor)
+train[, c("mz", "CCS", "kmd")] <- lapply(train[, c("mz", "CCS", "kmd")], as.numeric)
+
+#method build
+rf.k <- randomForest(Kingdom ~ mz + CCS + kmd, data = train, ntree = 500, mtry = 3, importance=TRUE, norm.votes=TRUE, proximity=TRUE, keep.forest=TRUE)
+rf.s <- randomForest(Super.Class ~ mz + CCS + kmd + Kingdom, data = train, ntree = 100, mtry = 4, importance=TRUE, norm.votes=TRUE, proximity=TRUE, keep.forest=TRUE)
+rf.c <- randomForest(Class ~ mz + CCS + kmd + Kingdom + Super.Class, data = train, ntree = 100, mtry = 4.5, importance=TRUE, norm.votes=TRUE, proximity=TRUE, keep.forest=TRUE, nodesize=2)
+rf.sb <- randomForest(Subclass ~ mz + CCS + kmd + Kingdom + Super.Class + Class, data = train, ntree = 1000, mtry = 5, importance=TRUE, norm.votes=TRUE, proximity=TRUE, keep.forest=TRUE, nodesize=2)
+
+```
+
+#predictions
+```{r}
+# test.predict <- test[, c("Compound", "mz", "CCS", "kmd")]
+
+#category prediction: k
+test.predict[,"Kingdom"] <- predict(rf.k, test.predict[,c("mz", "CCS", "kmd")])
+# test.predict[,"match.k"] <- ifelse(test[,"Kingdom"] == test.predict[,"Kingdom"], "yes", "no")
+test.predict[,"match.k"] <- ifelse(test[,"Kingdom"] == as.character(test.predict[,"Kingdom"]), "yes", "no")
+#category prediction probabilities: k
+res.k <- predict(rf.k, test.predict[,c("mz", "CCS", "kmd")], type = "prob")
+res.k <- as.data.frame(cbind(test$Kingdom, as.character(test.predict$Kingdom), res.k))
+colnames(res.k)[1] <- "Kingdom"
+colnames(res.k)[2] <- "Predicted.Kingdom"
+write.csv(res.k, "~/Box Sync/R_Scripts&Data/20190425JAP_SIFTER/testSetData/_TJC/20200221JAP_compendium_kingdom_results.csv")
+test.predict[, "prob.k"] <- as.numeric(apply(res.k[3:ncol(res.k)], 1, max))
+
+#category prediction: s
+test.predict[,"Super.Class"] <- predict(rf.s, test.predict[,c("mz", "CCS", "kmd", "Kingdom")])
+# test.predict[,"match.s"] <- ifelse(test[,"Super.Class"] == test.predict[,"Super.Class"], "yes", "no")
+test.predict[,"match.s"] <- ifelse(test[,"Super.Class"] == as.character(test.predict[,"Super.Class"]), "yes", "no")
+#category prediction probabilities: s
+res.s <- predict(rf.s, test.predict[,c("mz", "CCS", "kmd", "Kingdom")], type = "prob")
+res.s <- as.data.frame(cbind(test$Super.Class, as.character(test.predict$Super.Class), res.s))
+colnames(res.s)[1] <- "Super.Class"
+colnames(res.s)[2] <- "Predicted.Super.Class"
+write.csv(res.s, "~/Box Sync/R_Scripts&Data/20190425JAP_SIFTER/testSetData/_TJC/20200221JAP_compendium_superclass_results.csv")
+test.predict[, "prob.s"] <- as.numeric(apply(res.s[3:ncol(res.s)], 1, max))
+
+#category prediction: c
+test.predict[,"Class"] <- predict(rf.c, test.predict[,c("mz", "CCS", "kmd", "Kingdom", "Super.Class")])
+# test.predict[,"match.c"] <- ifelse(test[,"Class"] == test.predict[,"Class"], "yes", "no")
+test.predict[,"match.c"] <- ifelse(test[,"Class"] == as.character(test.predict[,"Class"]), "yes", "no")
+#category prediction probabilities: c
+res.c <- predict(rf.c, test.predict[,c("mz", "CCS", "kmd", "Kingdom", "Super.Class")], type = "prob")
+res.c <- as.data.frame(cbind(test$Class, as.character(test.predict$Class), res.c))
+colnames(res.c)[1] <- "Class"
+colnames(res.c)[2] <- "Predicted.Class"
+write.csv(res.c, "~/Box Sync/R_Scripts&Data/20190425JAP_SIFTER/testSetData/_TJC/20200221JAP_compendium_class_result.csv")
+test.predict[, "prob.c"] <- as.numeric(apply(res.c[3:ncol(res.c)], 1, max))
+
+#category prediction: sb
+test.predict[,"Subclass"] <- predict(rf.sb, test.predict[,c("mz", "CCS", "kmd", "Kingdom", "Super.Class", "Class")])
+# test.predict[,"match.sb"] <- ifelse(test[,"Subclass"] == test.predict[,"Subclass"], "yes", "no")
+test.predict[,"match.sb"] <- ifelse(test[,"Subclass"] == as.character(test.predict[,"Subclass"]), "yes", "no")
+#category prediction probabilities: sb
+res.sb <- predict(rf.sb, test.predict[,c("mz", "CCS", "kmd", "Kingdom", "Super.Class", "Class")], type = "prob")
+res.sb <- as.data.frame(cbind(test$Subclass, as.character(test.predict$Subclass), res.sb))
+colnames(res.sb)[1] <- "Subclass"
+colnames(res.sb)[2] <- "Predicted.Subclass"
+write.csv(res.sb, "~/Box Sync/R_Scripts&Data/20190425JAP_SIFTER/testSetData/_TJC/20200221JAP_compendium_subclass_result.csv")
+test.predict[, "prob.sb"] <- as.numeric(apply(res.sb[3:ncol(res.sb)], 1, max))
+
+#category errors
+mat.k <- as.matrix(rf.k[["confusion"]])
+mat.k.var <- as.data.frame(importance(rf.k))
+write.csv(mat.k, "~/Box Sync/R_Scripts&Data/20190425JAP_SIFTER/testSetData/_TJC/20200221JAP_compendium_kingdom_errors.csv")
+mat.s <- as.matrix(rf.s[["confusion"]])
+mat.s.var <- as.data.frame(importance(rf.s))
+write.csv(mat.s, "~/Box Sync/R_Scripts&Data/20190425JAP_SIFTER/testSetData/_TJC/20200221JAP_compendium_superclass_errors.csv")
+mat.c <- as.matrix(rf.c[["confusion"]])
+mat.c.var <- as.data.frame(importance(rf.c))
+write.csv(mat.c, "~/Box Sync/R_Scripts&Data/20190425JAP_SIFTER/testSetData/_TJC/20200221JAP_compendium_class_errors.csv")
+mat.sb <- as.matrix(rf.sb[["confusion"]])
+mat.sb.var <- as.data.frame(importance(rf.sb))
+write.csv(mat.sb, "~/Box Sync/R_Scripts&Data/20190425JAP_SIFTER/testSetData/_TJC/20200221JAP_compendium_subclass_errors.csv")
+
+```
+
+#hierarchy test by ZJHiggins
+```{r}
+#build tree
+tree <- all[, c("Kingdom", "Super.Class", "Class", "Subclass")]
+tree <- tree[!duplicated(tree$Subclass),]
+rownames(tree) <- 1:nrow(tree)
+
+# Set Test Hierarchy To "none" By Default
+test.predict$hierarchy <- "no match"
+
+# Perform Predicted Class Comparison
+for (x in 1:nrow(test.predict)) {
+
+    # Find Index Numbers and Add To Comparison Vectors
+    pv_kingdom <- which(as.character(test.predict$Kingdom[x]) == tree$Kingdom)
+    pv_superclass <- which(as.character(test.predict$Super.Class[x]) == tree$Super.Class)
+    pv_class <- which(as.character(test.predict$Class[x]) == tree$Class)
+    pv_subclass <- which(as.character(test.predict$Subclass[x]) == tree$Subclass)
+
+    # Find Intersect Values
+    kscsb_intersect <- Reduce(intersect, list(pv_kingdom, pv_superclass, pv_class, pv_subclass))
+    ksc_intersect <- Reduce(intersect, list(pv_kingdom, pv_superclass, pv_class))
+    kssb_intersect <- Reduce(intersect, list(pv_kingdom, pv_superclass, pv_subclass))
+    kcsb_intersect <- Reduce(intersect, list(pv_kingdom, pv_class, pv_subclass))
+    ks_intersect <- Reduce(intersect, list(pv_kingdom, pv_superclass))
+    kc_intersect <- Reduce(intersect, list(pv_kingdom, pv_class))
+    ksb_intersect <- Reduce(intersect, list(pv_kingdom, pv_subclass))
+    scsb_intersect <- Reduce(intersect, list(pv_superclass, pv_class, pv_subclass))
+    sc_intersect <- Reduce(intersect, list(pv_superclass, pv_class))
+    ssb_intersect <- Reduce(intersect, list(pv_superclass, pv_subclass))
+    csb_intersect <- Reduce(intersect, list(pv_class, pv_subclass))
+
+    # Determine Value
+    h_kscsb <- any(kscsb_intersect)
+    h_ksc <- any(ksc_intersect)
+    h_kssb <- any(kssb_intersect)
+    h_kcsb <- any(kcsb_intersect)
+    h_ks <- any(ks_intersect)
+    h_kc <- any(kc_intersect)
+    h_ksb <- any(ksb_intersect)
+    h_scsb <- any(scsb_intersect)
+    h_csb <- any(csb_intersect)
+    h_ssb <- any(ssb_intersect)
+    h_sc <- any(sc_intersect)
+
+    # Update Fields
+    if (h_csb) {test.predict$hierarchy[x] <- "csb"}
+    if (h_ssb) {test.predict$hierarchy[x] <- "ssb"}
+    if (h_sc) {test.predict$hierarchy[x] <- "sc"}
+    if (h_scsb) {test.predict$hierarchy[x] <- "scsb"}
+    if (h_ksb) {test.predict$hierarchy[x] <- "ksb"}
+    if (h_kc) {test.predict$hierarchy[x] <- "kc"}
+    if (h_ks) {test.predict$hierarchy[x] <- "ks"}
+    if (h_kcsb) {test.predict$hierarchy[x] <- "kcsb"}
+    if (h_kssb) {test.predict$hierarchy[x] <- "kssb"}
+    if (h_ksc) {test.predict$hierarchy[x] <- "ksc"}
+    if (h_kscsb) {test.predict$hierarchy[x] <- "kscsb"}
+
+}
+
+# # Zach's OP
+# for (x in 1:nrow(test.predict)) {
+#   
+#     # Find Index Numbers and Add To Comparison Vectors
+#     pv_superclass <- which(as.character(test.predict$Super.Class[x]) == tree$Super.Class)
+#     pv_class <- which(as.character(test.predict$Class[x]) == tree$Class)
+#     pv_subclass <- which(as.character(test.predict$Subclass[x]) == tree$Subclass)
+# 
+#     # Find Intersect Values
+#     scsb_intersect <- Reduce(intersect, list(pv_superclass, pv_class, pv_subclass))
+#     csb_intersect <- Reduce(intersect, list(pv_class, pv_subclass))
+#     ssb_intersect <- Reduce(intersect, list(pv_superclass, pv_subclass))
+#     sc_intersect <- Reduce(intersect, list(pv_superclass, pv_class))
+# 
+#     # Determine Value
+#     h_scsb <- any(scsb_intersect)
+#     h_csb <- any(csb_intersect)
+#     h_ssb <- any(ssb_intersect)
+#     h_sc <- any(sc_intersect)
+# 
+#     # Update Fields
+#     if (h_sc) {test.predict$hierarchy[x] <- "sc"}
+#     if (h_ssb) {test.predict$hierarchy[x] <- "ssb"}
+#     if (h_csb) {test.predict$hierarchy[x] <- "csb"}
+#     if (h_scsb) {test.predict$hierarchy[x] <- "scsb"}
+# }
+
+write.csv(test.predict, "~/Box Sync/R_Scripts&Data/20190425JAP_SIFTER/testSetData/_TJC/20200221JAP_probAnalysis.csv")
+
+```
+
+#bsr_test
+```{r}
+#test data prep
+bsr <- read.csv("~/Box Sync/R_Scripts&Data/20190425JAP_SIFTER/test/20190515_highconfids_bsr.csv", header = TRUE, stringsAsFactors = FALSE)
+bsr <- bsr[, c("Name", "Kingdom", "SuperClass", "Class", "Subclass", "Score", "RT.x", "mz.x","Charge", "ccsz")]
+colnames(bsr) <- c("Name", "Kingdom", "Super.Class", "Class", "Subclass", "Score", "RT", "mz","Charge", "ccsz")
+bsr <- bsr[!(bsr$Score <= 60 | is.na(bsr$ccsz)),]
+# bsr <- bsr[!duplicated(bsr[ c("RT", "mz", "ccsz")]),]
+bsr$Kingdom <- ifelse(bsr$Kingdom == "", NA, bsr$Kingdom)
+bsr <- na.omit(bsr)
+bsr$CCS <- bsr$ccsz*bsr$Charge
+bsr$km <- bsr$mz/1.0011178
+bsr$nkm <- floor(bsr$km)
+bsr$kmd <- bsr$nkm - bsr$km
+
+x <- c("Kingdom", "Super.Class", "Class", "Subclass")
+
+for (i in x) {
+  bsr[, i] <- tolower(bsr[, i])
+  bsr[, i] <- paste0(toupper(substr(bsr[, i], 1, 1)), substr(bsr[,i], 2, nchar(bsr[,i])))
+  bsr[, i] <- as.factor(bsr[, i])
+}
+
+bsr.val <- bsr
+bsr <- bsr[, c("Name", "Score", "mz", "CCS", "kmd")]
+
+test.predict <- bsr
+test <- bsr.val
+rm(bsr, bsr.val)
+
+```
