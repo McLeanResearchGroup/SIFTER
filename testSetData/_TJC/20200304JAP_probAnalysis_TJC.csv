@@ -1,0 +1,101 @@
+Row,mz,CCS,kmd,Kingdom,prob.k,Super.Class,prob.s,Class,prob.c,Subclass,prob.sb,match.k,match.s,match.c,match.sb,hierarchy
+1,481.06,198,-0.522871534,Organic compounds,0.872,"Nucleosides, nucleotides, and analogues",0.72,Pyrimidine nucleotides,0.73,Pyrimidine ribonucleotides,0.997,yes,no,no,no,kscsb
+2,739.08,249.7,-0.254778808,Organic compounds,0.998,"Nucleosides, nucleotides, and analogues",0.43,Purine nucleotides,0.94,Purine ribonucleotides,0.949,yes,no,no,no,kscsb
+3,969.08,281.1,-0.997971867,Organic compounds,0.978,Lipids and lipid-like molecules,0.94,Sphingolipids,0.56,Ceramides,0.601,yes,no,no,no,kscsb
+4,773.05,396.1,-0.18684954,Organic compounds,1,Organic acids and derivatives,0.86,Carboxylic acids and derivatives,0.88,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+5,633.07,221.7,-0.363144477,Organic compounds,1,"Nucleosides, nucleotides, and analogues",1,Pyrimidine nucleotides,0.63,Pyrimidine nucleotide sugars,0.998,yes,no,no,no,kscsb
+6,924.06,413.8,-0.028239034,Organic compounds,0.968,Organic nitrogen compounds,0.52,Organonitrogen compounds,0.91,Quaternary ammonium salts,0.782,yes,no,no,no,kscsb
+7,924.06,454.5,-0.028239034,Organic compounds,0.968,Organic nitrogen compounds,0.52,Organonitrogen compounds,0.91,Quaternary ammonium salts,0.781,yes,no,no,no,kscsb
+8,990.07,433.6,-0.964535442,Organic compounds,0.992,Organic acids and derivatives,0.98,Peptidomimetics,0.89,Depsipeptides,0.999,yes,no,no,no,kscsb
+9,1000.06,438.7,-0.943381089,Organic compounds,0.998,Organic acids and derivatives,0.98,Peptidomimetics,0.89,Depsipeptides,0.999,yes,no,no,no,kscsb
+10,1000.06,473.8,-0.943381089,Organic compounds,0.998,Organic acids and derivatives,0.62,Peptidomimetics,0.89,Depsipeptides,0.999,yes,no,no,no,kscsb
+11,1101.07,313.7,-0.840598179,Organic compounds,0.998,Organohalogen compounds,0.64,Organofluorides,0.9,Phosphazene and phosphazene derivatives,0.99,yes,no,no,no,kscsb
+12,933.07,287.8,-0.028178902,Organic compounds,0.958,Organic acids and derivatives,0.33,Carboxylic acids and derivatives,0.91,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+13,933.06,388.7,-0.018190067,Organic compounds,0.96,Organic nitrogen compounds,0.83,Organonitrogen compounds,0.94,Quaternary ammonium salts,0.783,yes,no,no,no,kscsb
+14,1085.07,310.2,-0.85846301,Organic compounds,0.998,Organohalogen compounds,0.6,Organofluorides,0.89,Phosphazene and phosphazene derivatives,0.99,yes,no,no,no,kscsb
+15,542.03,338.4,-0.424795364,Organic compounds,1,Organic acids and derivatives,0.93,Carboxylic acids and derivatives,0.68,"Amino acids, peptides, and analogues",0.999,yes,no,no,no,kscsb
+16,1041.08,303.1,-0.917580129,Organic compounds,1,Lipids and lipid-like molecules,0.87,Sphingolipids,0.52,Ceramides,0.681,yes,no,no,no,kscsb
+17,520.04,334.9,-0.45934834,Organic compounds,1,Organic acids and derivatives,0.93,Peptidomimetics,0.58,Depsipeptides,0.999,yes,no,no,no,kscsb
+18,787.09,260.8,-0.211173151,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.4,Purine nucleotides,0.82,Purine ribonucleotides,0.919,yes,no,no,no,kscsb
+19,393.04,297.1,-0.601150434,Organic compounds,1,Organic acids and derivatives,0.65,Carboxylic acids and derivatives,0.99,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+20,433.04,193,-0.556488357,Organic compounds,0.998,"Nucleosides, nucleotides, and analogues",0.93,Purine nucleotides,0.74,Purine ribonucleotides,0.596,yes,no,no,no,kscsb
+21,300.99,154.8,-0.653929038,Organic compounds,1,Benzenoids,0.61,Benzene and substituted derivatives,0.99,Anilides,0.406,yes,no,no,no,kscsb
+22,343.04,174.4,-0.65697803,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.81,Pyrimidine nucleotides,0.74,Pyrimidine deoxyribonucleotides,0.92,yes,no,no,no,kscsb
+23,486.1178,207.8,-0.575024238,Organic compounds,1,Organic oxygen compounds,0.88,Organooxygen compounds,1,Carbohydrates and carbohydrate conjugates,1,yes,no,no,no,kscsb
+24,484.1014,198.3,-0.560875653,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.85,Pyrimidine nucleotides,0.85,Pyrimidine ribonucleotides,0.997,yes,no,no,no,kscsb
+25,451.1229,203.2,-0.619197861,Organic compounds,1,Organic acids and derivatives,0.84,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+26,449.1088,196.6,-0.607346708,Organic compounds,1,Organic acids and derivatives,0.76,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+27,618.1249,228.5,-0.434731457,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.89,Purine nucleotides,0.7,Purine nucleotide sugars,0.969,yes,no,no,no,kscsb
+28,616.1085,226,-0.420582872,Organic compounds,1,"Nucleosides, nucleotides, and analogues",1,Purine nucleotides,0.81,Purine nucleotide sugars,0.974,yes,no,no,no,kscsb
+29,449.1083,202.7,-0.606847266,Organic compounds,1,Organic acids and derivatives,0.82,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+30,447.0922,201.3,-0.592998346,Organic compounds,1,Organic acids and derivatives,0.83,Carboxylic acids and derivatives,0.83,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+31,465.1028,207.2,-0.583488576,Organic compounds,1,Organic acids and derivatives,0.55,Carboxylic acids and derivatives,0.88,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+32,465.1024,206.5,-0.583089023,Organic compounds,1,Organic acids and derivatives,0.56,Carboxylic acids and derivatives,0.88,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+33,463.0875,203.9,-0.570438764,Organic compounds,1,Organic oxygen compounds,0.75,Organooxygen compounds,1,Carbohydrates and carbohydrate conjugates,1,yes,no,no,no,kscsb
+34,481.0986,209.7,-0.561428435,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.68,Pyrimidine nucleotides,0.9,Pyrimidine ribonucleotides,0.958,yes,no,no,no,kscsb
+35,646.1541,237.1,-0.4326354,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.68,Purine nucleotides,0.71,Purine nucleotide sugars,0.658,yes,no,no,no,kscsb
+36,644.1396,234.5,-0.420384694,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.68,Purine nucleotides,0.7,Purine nucleotide sugars,0.888,yes,no,no,no,kscsb
+37,495.1124,210.9,-0.5595813,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.76,Pyrimidine nucleotides,0.95,Pyrimidine ribonucleotides,0.933,yes,no,no,no,kscsb
+38,493.0991,209.3,-0.548529254,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.92,Pyrimidine nucleotides,0.91,Pyrimidine ribonucleotides,0.949,yes,no,no,no,kscsb
+39,639.1692,238.1,-0.455534404,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.65,Purine nucleotides,0.7,Purine nucleotide sugars,0.66,yes,no,no,no,kscsb
+40,637.1563,237,-0.444881911,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.68,Purine nucleotides,0.71,Purine nucleotide sugars,0.66,yes,no,no,no,kscsb
+41,655.1667,238.6,-0.435172364,Organic compounds,1,Organic oxygen compounds,0.55,Organooxygen compounds,1,Carbohydrates and carbohydrate conjugates,0.981,yes,no,no,no,kscsb
+42,493.1342,215.2,-0.583590063,Organic compounds,1,Organic oxygen compounds,0.72,Organooxygen compounds,1,Carbohydrates and carbohydrate conjugates,1,yes,no,no,no,kscsb
+43,491.1193,216,-0.570939803,Organic compounds,1,Organic oxygen compounds,0.85,Organooxygen compounds,1,Carbohydrates and carbohydrate conjugates,1,yes,no,no,no,kscsb
+44,509.1297,217.5,-0.561230257,Organic compounds,1,Organic oxygen compounds,0.54,Organooxygen compounds,1,Carbohydrates and carbohydrate conjugates,1,yes,no,no,no,kscsb
+45,463.1236,207.1,-0.606498456,Organic compounds,1,Organic acids and derivatives,0.77,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+46,461.1083,207.5,-0.593448643,Organic compounds,1,Organic acids and derivatives,0.75,Carboxylic acids and derivatives,0.83,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+47,479.1183,211.8,-0.583339543,Organic compounds,1,Organic acids and derivatives,0.49,Carboxylic acids and derivatives,0.88,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+48,479.1184,205.3,-0.583439431,Organic compounds,1,Organic acids and derivatives,0.61,Carboxylic acids and derivatives,0.88,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+49,479.1188,210.7,-0.583838985,Organic compounds,1,Organic acids and derivatives,0.55,Carboxylic acids and derivatives,0.81,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+50,477.1039,209.5,-0.571188725,Organic compounds,1,Organic oxygen compounds,0.73,Organooxygen compounds,1,Carbohydrates and carbohydrate conjugates,1,yes,no,no,no,kscsb
+51,495.114,214.4,-0.561179514,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.56,Pyrimidine nucleotides,0.72,Pyrimidine ribonucleotides,0.931,yes,no,no,no,kscsb
+52,479.0817,204.7,-0.546780409,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.87,Pyrimidine nucleotides,0.77,Pyrimidine ribonucleotides,0.997,yes,no,no,no,kscsb
+53,477.0672,204,-0.534529703,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.87,Pyrimidine nucleotides,0.71,Pyrimidine ribonucleotides,0.997,yes,no,no,no,kscsb
+54,229.086,157.3,-0.830213587,Organic compounds,1,Organoheterocyclic compounds,0.71,Indoles and derivatives,0.73,Indoles,0.462,yes,no,no,no,kscsb
+55,227.0713,158.3,-0.817763104,Organic compounds,1,Benzenoids,0.62,Benzene and substituted derivatives,0.94,Anilides,0.634,yes,no,no,no,kscsb
+56,229.0861,157.4,-0.830313476,Organic compounds,1,Organoheterocyclic compounds,0.71,Indoles and derivatives,0.73,Indoles,0.462,yes,no,no,no,kscsb
+57,227.071,159.1,-0.817463439,Organic compounds,1,Benzenoids,0.62,Benzene and substituted derivatives,0.94,Anilides,0.652,yes,no,no,no,kscsb
+58,509.1278,214.6,-0.559332378,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.65,Pyrimidine nucleotides,0.72,Pyrimidine ribonucleotides,0.94,yes,no,no,no,kscsb
+59,507.1142,214.7,-0.547980667,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.67,Pyrimidine nucleotides,0.69,Pyrimidine ribonucleotides,0.94,yes,no,no,no,kscsb
+60,509.1292,214.9,-0.560730815,Organic compounds,1,Organic oxygen compounds,0.54,Organooxygen compounds,1,Carbohydrates and carbohydrate conjugates,1,yes,no,no,no,kscsb
+61,507.1146,216.2,-0.548380221,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.67,Pyrimidine nucleotides,0.69,Pyrimidine ribonucleotides,0.939,yes,no,no,no,kscsb
+62,389.1238,208.6,-0.689323075,Organic compounds,1,Phenylpropanoids and polyketides,0.56,Flavonoids,0.98,O-methylated flavonoids,0.988,yes,yes,no,no,kscsb
+63,389.1238,190.8,-0.689323075,Organic compounds,0.998,Phenylpropanoids and polyketides,0.43,Flavonoids,0.95,O-methylated flavonoids,0.991,yes,yes,no,no,kscsb
+64,389.1243,181.8,-0.689822516,Organic compounds,1,Organic oxygen compounds,0.47,Organooxygen compounds,1,Carbohydrates and carbohydrate conjugates,1,yes,no,no,no,kscsb
+65,207.0667,148.2,-0.835499279,Organic compounds,1,Organic acids and derivatives,0.44,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",0.995,yes,no,no,no,kscsb
+66,209.0813,149.3,-0.847849873,Organic compounds,1,Organic oxygen compounds,0.37,Organooxygen compounds,1,Carbonyl compounds,0.493,yes,no,no,no,kscsb
+67,191.0706,146.3,-0.857259755,Organic compounds,1,Organic oxygen compounds,0.33,Organooxygen compounds,1,Alcohols and polyols,0.708,yes,no,no,no,kscsb
+68,193.0858,144.7,-0.87020968,Organic compounds,1,Organoheterocyclic compounds,0.57,Indoles and derivatives,0.7,Indolyl carboxylic acids and derivatives,0.604,yes,no,no,no,kscsb
+69,561.124,228.2,-0.497475921,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.87,Purine nucleotides,0.59,Purine nucleotide sugars,0.954,yes,no,no,no,kscsb
+70,559.1099,229.6,-0.485624769,Organic compounds,0.996,"Nucleosides, nucleotides, and analogues",0.81,Purine nucleotides,0.55,Purine nucleotide sugars,0.939,yes,no,no,no,kscsb
+71,517.1345,217.2,-0.557092482,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.65,Purine nucleotides,0.53,Purine ribonucleotides,0.512,yes,no,no,no,kscsb
+72,515.1185,220,-0.543343451,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.67,Pyrimidine nucleotides,0.49,Pyrimidine ribonucleotides,0.904,yes,no,no,no,kscsb
+73,481.0969,206.8,-0.559730333,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.86,Pyrimidine nucleotides,0.87,Pyrimidine ribonucleotides,0.996,yes,no,no,no,kscsb
+74,467.1182,206.7,-0.596638278,Organic compounds,1,Organic acids and derivatives,0.76,Carboxylic acids and derivatives,0.76,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+75,467.1178,199.7,-0.596238724,Organic compounds,1,Organic acids and derivatives,0.89,Carboxylic acids and derivatives,0.77,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+76,465.1035,197.6,-0.584187795,Organic compounds,1,Organic acids and derivatives,0.66,Carboxylic acids and derivatives,0.82,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+77,169.0149,125,-0.826186089,Organic compounds,1,Organoheterocyclic compounds,0.46,Imidazopyrimidines,0.47,Purines and purine derivatives,1,yes,no,no,no,kscsb
+78,285.0409,163.2,-0.722637036,Organic compounds,1,Benzenoids,0.36,Benzene and substituted derivatives,0.97,Benzenesulfonamides,0.862,yes,no,no,no,kscsb
+79,287.056,163.2,-0.735487073,Organic compounds,1,Organic acids and derivatives,0.36,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+80,317.0274,167.4,-0.673422448,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.76,Pyrimidine nucleotides,0.92,Pyrimidine ribonucleotides,0.6,yes,no,no,no,kscsb
+81,319.0457,171.4,-0.689468912,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.48,Purine nucleotides,0.56,Cyclic purine nucleotides,0.87,yes,no,no,no,kscsb
+82,289.0709,156.9,-0.748137332,Organic compounds,1,Organic acids and derivatives,0.46,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+83,291.0873,162.4,-0.762285917,Organic compounds,1,Benzenoids,0.61,Pyrenes,0.65,Benzopyrenes,0.987,yes,no,no,no,kscsb
+84,291.087,168.6,-0.761986252,Organic compounds,1,Benzenoids,0.36,Benzene and substituted derivatives,0.72,Benzenesulfonamides,0.942,yes,no,no,no,kscsb
+85,289.0716,157.1,-0.748836551,Organic compounds,1,Organic acids and derivatives,0.44,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+86,291.0876,162.4,-0.762585582,Organic compounds,1,Benzenoids,0.59,Pyrenes,0.65,Benzopyrenes,0.987,yes,no,no,no,kscsb
+87,291.0872,168.4,-0.762186028,Organic compounds,1,Benzenoids,0.36,Benzene and substituted derivatives,0.72,Benzenesulfonamides,0.941,yes,no,no,no,kscsb
+88,271.061,163.8,-0.75834632,Organic compounds,1,Benzenoids,0.31,Benzene and substituted derivatives,0.74,Benzenesulfonamides,0.845,yes,no,no,no,kscsb
+89,273.0765,163.8,-0.77159591,Organic compounds,1,Benzenoids,0.45,Benzene and substituted derivatives,0.69,Benzenesulfonamides,0.775,yes,no,no,no,kscsb
+90,301.0334,164.6,-0.69728058,Organic compounds,1,Benzenoids,0.37,Benzene and substituted derivatives,0.94,Benzenesulfonamides,0.917,yes,no,no,no,kscsb
+91,303.0507,167.7,-0.71232816,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.42,Pyrimidine nucleotides,0.63,Pyrimidine deoxyribonucleotides,0.628,yes,no,no,no,kscsb
+92,193.0507,139.7,-0.835148871,Organic compounds,1,Organoheterocyclic compounds,0.31,Indoles and derivatives,0.68,Indolyl carboxylic acids and derivatives,0.893,yes,no,no,no,kscsb
+93,444.1631,195.4,-0.667168839,Organic compounds,1,Organic acids and derivatives,0.75,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,yes,yes,yes,kscsb
+94,456.1631,197.1,-0.653770216,Organic compounds,1,Organic acids and derivatives,0.89,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+95,458.1788,199.6,-0.667219582,Organic compounds,1,Organic acids and derivatives,0.75,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,no,no,no,kscsb
+96,346.0553,173.4,-0.668911291,Organic compounds,1,"Nucleosides, nucleotides, and analogues",0.92,Purine nucleotides,0.97,Cyclic purine nucleotides,0.698,yes,yes,yes,no,kscsb
+97,115.0031,132.3,-0.874693068,Organic compounds,1,Organic acids and derivatives,0.65,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,yes,yes,no,kscsb
+98,191.0192,127.7,-0.805917146,Organic compounds,1,Organic acids and derivatives,0.85,Carboxylic acids and derivatives,1,Tricarboxylic acids and derivatives,0.663,yes,yes,yes,yes,kscsb
+99,306.076,162.3,-0.734250255,Organic compounds,1,Organic acids and derivatives,0.5,Carboxylic acids and derivatives,1,"Amino acids, peptides, and analogues",1,yes,yes,yes,yes,kscsb
+100,171.0059,125.6,-0.814963034,Organic compounds,1,Lipids and lipid-like molecules,0.63,Glycerophospholipids,0.87,Glycerophosphates,0.964,yes,yes,yes,yes,kscsb
